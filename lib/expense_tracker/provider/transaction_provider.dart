@@ -1,4 +1,4 @@
-import 'package:expense_tracker_provider/model/transaction.dart';
+import 'package:expense_tracker_provider/expense_tracker/model/transaction.dart';
 import 'package:flutter/material.dart';
 
 class TransactionProvider with ChangeNotifier {

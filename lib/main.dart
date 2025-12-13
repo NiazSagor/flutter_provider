@@ -1,7 +1,10 @@
-import 'package:expense_tracker_provider/provider/transaction_provider.dart';
-import 'package:expense_tracker_provider/ui/home_screen.dart';
+import 'package:expense_tracker_provider/habit_tracker/provider/habit_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import 'expense_tracker/provider/transaction_provider.dart';
+import 'expense_tracker/ui/home_screen.dart';
+import 'habit_tracker/ui/habit_list_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,14 +15,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => TransactionProvider(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => HabitProvider()),
+        ChangeNotifierProvider(create: (_) => TransactionProvider()),
+      ],
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         ),
-        home: const HomeScreen(),
+        home: const HabitListScreen(),
       ),
     );
   }
