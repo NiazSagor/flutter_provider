@@ -1,4 +1,4 @@
-# expense_tracker_provider
+# flutter_provider
 
 An app made in Flutter for educational purposes that uses the provider package for state management.
 
