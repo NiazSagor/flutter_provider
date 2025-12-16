@@ -1,9 +1,11 @@
+import 'package:expense_tracker_provider/contact/provider/provider_service.dart';
 import 'package:expense_tracker_provider/habit_tracker/provider/habit_provider.dart';
 import 'package:expense_tracker_provider/voting_app/provider/voting_provider.dart';
 import 'package:expense_tracker_provider/voting_app/ui/voting_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'contact/ui/members.dart';
 import 'expense_tracker/provider/transaction_provider.dart';
 import 'expense_tracker/ui/home_screen.dart';
 import 'habit_tracker/ui/habit_list_screen.dart';
@@ -22,13 +24,14 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => HabitProvider()),
         ChangeNotifierProvider(create: (_) => TransactionProvider()),
         ChangeNotifierProvider(create: (_) => VotingProvider()),
+        ChangeNotifierProvider(create: (_) => ProviderService()),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         ),
-        home: const VotingScreen(),
+        home: Members(),
       ),
     );
   }
